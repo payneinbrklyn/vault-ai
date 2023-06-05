@@ -40,8 +40,10 @@
     <!-- GHETTO HTTPS REDIRECT SINCE IT'S HARD IN KUBERNETES -->
     <script type="text/javascript">
         (function () {
+            const localNetworkPrefix = '10.1.';
             if (
                 location.hostname !== 'localhost' &&
+                !location.hostname.startsWith(localNetworkPrefix) &&
                 location.protocol !== 'https:'
             ) {
                 location.replace(
